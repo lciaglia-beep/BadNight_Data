@@ -125,9 +125,6 @@
     object-fit: cover;
   }
   
-  /* Modal Animation Classes */
-  .modal-overlay { opacity: 0; pointer-events: none; transition: opacity 0.3s ease-out; }
-  .modal-overlay.active { opacity: 1; pointer-events: auto; }
 </style>
 </head>
 <body class="antialiased bg-bg text-gray-100 overflow-x-hidden selection:bg-accent/30 selection:text-white relative">
@@ -205,11 +202,11 @@
   
   <!-- Poster -->
   <div class="w-[260px] md:w-[320px] max-w-[85vw] rounded-xl overflow-hidden border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.8),0_0_50px_rgba(250,204,21,0.06)] mb-8 relative z-10">
-    <img src="poster.jpg" alt="Bad Night Poster" class="w-full block" onerror="this.outerHTML='<div class=\'w-full aspect-[2/3] bg-carbon flex items-center justify-center\'><span class=\'font-mono text-accent/30\'>POSTER</span></div>'">
+    <img src="poster.png" alt="Bad Night Poster" class="w-full block" onerror="this.outerHTML='<div class=\'w-full aspect-[2/3] bg-carbon flex items-center justify-center\'><span class=\'font-mono text-accent/30\'>POSTER</span></div>'">
   </div>
   
-  <!-- Authors Box -->
-  <div class="flex flex-col items-center gap-6 mb-12 relative z-10 w-full px-4">
+  <!-- Authors Box (Con margen ajustado para responsive) -->
+  <div class="flex flex-col items-center gap-6 mb-20 md:mb-32 relative z-30 w-full px-4">
     <!-- Writers Row -->
     <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-3">
       <div class="group relative inline-block">
@@ -217,7 +214,7 @@
           LUCIANO CIAGLIA
           <span class="imdb-pop bg-[#F5C518] text-black text-[7px] font-extrabold px-1.5 py-0.5 rounded tracking-wide ml-2 absolute top-0 -right-8">IMDb</span>
         </a>
-        <div class="author-tooltip absolute top-[calc(100%+14px)] left-1/2 w-64 p-4 rounded-xl glass-panel z-50 text-left pointer-events-none group-hover:pointer-events-auto shadow-2xl">
+        <div class="author-tooltip absolute top-[calc(100%+14px)] left-1/2 w-64 max-w-[85vw] p-4 rounded-xl glass-panel z-50 text-left pointer-events-none group-hover:pointer-events-auto shadow-2xl">
           <div class="flex gap-3 items-center mb-3">
             <div class="w-12 h-12 rounded-lg bg-carbon border border-accent/20 flex items-center justify-center text-lg text-accent/50 shrink-0 font-bold">LC</div>
             <div>
@@ -242,7 +239,7 @@
           DANI BALLESTEROS
           <span class="imdb-pop bg-[#F5C518] text-black text-[7px] font-extrabold px-1.5 py-0.5 rounded tracking-wide ml-2 absolute top-0 -right-8">IMDb</span>
         </a>
-        <div class="author-tooltip absolute top-[calc(100%+14px)] left-1/2 w-64 p-4 rounded-xl glass-panel z-50 text-left pointer-events-none group-hover:pointer-events-auto shadow-2xl">
+        <div class="author-tooltip absolute top-[calc(100%+14px)] left-1/2 w-64 max-w-[85vw] p-4 rounded-xl glass-panel z-50 text-left pointer-events-none group-hover:pointer-events-auto shadow-2xl">
           <div class="flex gap-3 items-center mb-3">
             <div class="w-12 h-12 rounded-lg bg-carbon border border-accent/20 flex items-center justify-center text-lg text-accent/50 shrink-0 font-bold">DB</div>
             <div>
@@ -285,7 +282,7 @@
 </section>
 
 <!-- NODO 1: Entrada -->
-<section class="max-w-4xl mx-auto px-6 py-20 relative fade-in" id="s1">
+<section class="max-w-4xl mx-auto px-6 py-16 md:py-20 relative fade-in" id="s1">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
   
   <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODO 01</div>
@@ -370,7 +367,7 @@
 </section>
 
 <!-- NODO 2: Evaluación -->
-<section class="max-w-4xl mx-auto px-6 py-20 relative fade-in" id="s2">
+<section class="max-w-4xl mx-auto px-6 py-16 md:py-20 relative fade-in" id="s2">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
   <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODO 02</div>
   <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gradient">Evaluación de acceso al proceso QIP</h2>
@@ -415,7 +412,7 @@
 </section>
 
 <!-- NODO 3: Primer Análisis -->
-<section class="max-w-4xl mx-auto px-6 py-20 relative fade-in" id="s3">
+<section class="max-w-4xl mx-auto px-6 py-16 md:py-20 relative fade-in" id="s3">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
   <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODO 03</div>
   <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gradient">Primer análisis QIP — Diagnóstico estructural del guion</h2>
@@ -458,7 +455,7 @@
 </section>
 
 <!-- NODO 4: Método -->
-<section class="max-w-4xl mx-auto px-6 py-20 relative fade-in" id="s4">
+<section class="max-w-4xl mx-auto px-6 py-16 md:py-20 relative fade-in" id="s4">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
   <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODO 04</div>
   <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gradient">Activación del Método — QIP Fase 1</h2>
@@ -510,7 +507,7 @@
 </section>
 
 <!-- NODO 5: GAME -->
-<section class="max-w-4xl mx-auto px-6 py-20 relative fade-in" id="s5">
+<section class="max-w-4xl mx-auto px-6 py-16 md:py-20 relative fade-in" id="s5">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
   <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODO 05</div>
   <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gradient">Activación módulo Games</h2>
@@ -576,12 +573,12 @@
 
   <!-- Enlace directo al PDF GDD y Nuevo Informe -->
   <div class="text-center mb-12 flex flex-col md:flex-row justify-center gap-4">
-    <a href="dossier_puzzle.pdf" target="_blank" class="inline-flex items-center gap-3 px-6 py-4 rounded-lg border border-accent/40 bg-accent/10 hover:bg-accent/20 text-accent font-mono text-[11px] md:text-[12px] font-bold tracking-[2px] transition-all shadow-lg hover:shadow-accent/20 focus:outline-none">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+    <a href="dossier_puzzle.pdf" target="_blank" class="inline-flex items-center gap-3 px-6 py-4 rounded-lg border border-accent/40 bg-accent/10 hover:bg-accent/20 text-accent font-mono text-[11px] md:text-[12px] font-bold tracking-[2px] transition-all shadow-lg hover:shadow-accent/20 focus:outline-none max-w-[90vw] mx-auto">
+      <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
       VER PRESENTACIÓN PUZZLE BROTHERS
     </a>
-    <a href="informegdd.pdf" target="_blank" class="inline-flex items-center gap-3 px-6 py-4 rounded-lg border border-accent/40 bg-accent/10 hover:bg-accent/20 text-accent font-mono text-[11px] md:text-[12px] font-bold tracking-[2px] transition-all shadow-lg hover:shadow-accent/20 focus:outline-none">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+    <a href="informegdd.pdf" target="_blank" class="inline-flex items-center gap-3 px-6 py-4 rounded-lg border border-accent/40 bg-accent/10 hover:bg-accent/20 text-accent font-mono text-[11px] md:text-[12px] font-bold tracking-[2px] transition-all shadow-lg hover:shadow-accent/20 focus:outline-none max-w-[90vw] mx-auto">
+      <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
       INFORME GDD
     </a>
   </div>
@@ -598,7 +595,7 @@
 </section>
 
 <!-- NODO 6: Satélites (Actores Interactivos) -->
-<section class="max-w-4xl mx-auto px-6 py-20 relative fade-in" id="s6">
+<section class="max-w-4xl mx-auto px-6 py-16 md:py-20 relative fade-in" id="s6">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
   <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODO 06</div>
   <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gradient">Activación de satélites — Ecosistema de talento anticipado</h2>
@@ -697,7 +694,7 @@
 </section>
 
 <!-- NODO 7: QSS (Dossier + Teaser Armado) -->
-<section class="max-w-4xl mx-auto px-6 py-20 relative fade-in" id="s7">
+<section class="max-w-4xl mx-auto px-6 py-16 md:py-20 relative fade-in" id="s7">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
   <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODO 07</div>
   <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gradient">QSS — Empaquetado estratégico del proyecto</h2>
@@ -707,7 +704,7 @@
     En esta fase se activa el Qantica Smart System (QSS) como estructura de preparación comercial final del proyecto. A partir de los materiales generados en las etapas anteriores, el sistema ensambla los instrumentos necesarios para su presentación profesional en marketplace:
   </p>
   
-  <!-- Layout Apilado (Bloque 1 arriba, Bloque 2 abajo muy grande) -->
+  <!-- Layout Apilado -->
   <div class="flex flex-col gap-12 mb-12">
     
     <!-- BLOCK 1: INSTRUMENTOS -->
@@ -736,7 +733,7 @@
       </p>
     </div>
 
-    <!-- NEW BLOCK: TRANSMEDIA MÚSICA CON SPOTIFY HOVER -->
+    <!-- BLOCK: TRANSMEDIA MÚSICA CON SPOTIFY HOVER -->
     <div class="bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/30 rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md relative z-30">
       <div class="w-full">
         <h3 class="font-mono text-[13px] font-bold text-green-400 mb-3 tracking-[2px] uppercase">Transmedia: Música</h3>
@@ -752,7 +749,7 @@
         </a>
         
         <!-- Hidden Spotify Embed Hover (Desktop) -->
-        <div class="absolute bottom-full right-0 md:left-1/2 md:-translate-x-1/2 mb-4 hidden group-hover:block z-50 transition-all w-[300px] shadow-2xl">
+        <div class="absolute bottom-full right-0 md:left-1/2 md:-translate-x-1/2 mb-4 hidden group-hover:block z-50 transition-all w-[300px] max-w-[85vw] shadow-2xl">
           <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/4dRPdWRUFyJp0yhjGBLClx?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           <div class="absolute -bottom-2 right-12 md:left-1/2 md:-translate-x-1/2 border-4 border-transparent border-t-[#282828]"></div>
         </div>
@@ -807,7 +804,7 @@
   </div>
 
   <!-- BANNERS DE AUDIENCIA -->
-  <div class="mt-12 p-8 border border-white/10 bg-gradient-to-br from-white/5 to-transparent rounded-2xl shadow-xl relative overflow-hidden z-10">
+  <div class="mt-12 p-6 md:p-8 border border-white/10 bg-gradient-to-br from-white/5 to-transparent rounded-2xl shadow-xl relative overflow-hidden z-10">
     <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
     <h3 class="font-mono text-[13px] font-bold text-accent mb-8 tracking-[3px] text-center uppercase">Alcance de Audiencia Verificado</h3>
     
@@ -817,29 +814,29 @@
     </div>
     
     <!-- Estadísticas -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <div class="flex flex-col items-center justify-center p-5 bg-black/30 rounded-xl border border-white/5 backdrop-blur-sm">
-        <span class="font-sans text-3xl font-bold text-white mb-2 drop-shadow-md">10.8M</span>
-        <span class="font-mono text-[10px] text-gray-400 tracking-widest text-center">JAIME<br>LORENTE</span>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div class="flex flex-col items-center justify-center p-4 md:p-5 bg-black/30 rounded-xl border border-white/5 backdrop-blur-sm">
+        <span class="font-sans text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-md">10.8M</span>
+        <span class="font-mono text-[9px] md:text-[10px] text-gray-400 tracking-widest text-center">JAIME<br>LORENTE</span>
       </div>
-      <div class="flex flex-col items-center justify-center p-5 bg-black/30 rounded-xl border border-white/5 backdrop-blur-sm">
-        <span class="font-sans text-3xl font-bold text-white mb-2 drop-shadow-md">7.7M</span>
-        <span class="font-mono text-[10px] text-gray-400 tracking-widest text-center">CHINA<br>SUÁREZ</span>
+      <div class="flex flex-col items-center justify-center p-4 md:p-5 bg-black/30 rounded-xl border border-white/5 backdrop-blur-sm">
+        <span class="font-sans text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-md">7.7M</span>
+        <span class="font-mono text-[9px] md:text-[10px] text-gray-400 tracking-widest text-center">CHINA<br>SUÁREZ</span>
       </div>
-      <div class="flex flex-col items-center justify-center p-5 bg-black/30 rounded-xl border border-white/5 backdrop-blur-sm">
-        <span class="font-sans text-3xl font-bold text-white mb-2 drop-shadow-md">352K</span>
-        <span class="font-mono text-[10px] text-gray-400 tracking-widest text-center">DANIELA<br>WASHINGTON</span>
+      <div class="flex flex-col items-center justify-center p-4 md:p-5 bg-black/30 rounded-xl border border-white/5 backdrop-blur-sm">
+        <span class="font-sans text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-md">352K</span>
+        <span class="font-mono text-[9px] md:text-[10px] text-gray-400 tracking-widest text-center">DANIELA<br>WASHINGTON</span>
       </div>
-      <div class="flex flex-col items-center justify-center p-5 bg-black/30 rounded-xl border border-white/5 backdrop-blur-sm">
-        <span class="font-sans text-3xl font-bold text-white mb-2 drop-shadow-md">152K</span>
-        <span class="font-mono text-[10px] text-gray-400 tracking-widest text-center">XINA<br>MORA</span>
+      <div class="flex flex-col items-center justify-center p-4 md:p-5 bg-black/30 rounded-xl border border-white/5 backdrop-blur-sm">
+        <span class="font-sans text-2xl md:text-3xl font-bold text-white mb-2 drop-shadow-md">152K</span>
+        <span class="font-mono text-[9px] md:text-[10px] text-gray-400 tracking-widest text-center">XINA<br>MORA</span>
       </div>
     </div>
     
     <!-- Total -->
     <div class="mt-8 pt-8 border-t border-white/10 text-center">
-      <div class="font-sans font-black text-5xl md:text-6xl text-accent tracking-tight drop-shadow-[0_0_20px_rgba(250,204,21,0.2)]">19.0M+</div>
-      <div class="font-mono text-[10px] md:text-[12px] text-accent/70 tracking-[4px] mt-3 uppercase">Impacto Potencial Combinado</div>
+      <div class="font-sans font-black text-4xl md:text-6xl text-accent tracking-tight drop-shadow-[0_0_20px_rgba(250,204,21,0.2)]">19.0M+</div>
+      <div class="font-mono text-[9px] md:text-[12px] text-accent/70 tracking-[4px] mt-3 uppercase">Impacto Potencial Combinado</div>
     </div>
   </div>
   
@@ -859,7 +856,7 @@
 </section>
 
 <!-- NODO 8: MARKETPLACE COMPLETO -->
-<section class="max-w-6xl mx-auto px-6 py-20 relative fade-in" id="s8">
+<section class="max-w-6xl mx-auto px-6 py-16 md:py-20 relative fade-in" id="s8">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
   <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODO 08</div>
   <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gradient">MARKETPLACE — IP Exposure Layer</h2>
@@ -873,8 +870,8 @@
 
   <!-- NIVEL SUPERIOR: PRE-ESTRENOS -->
   <div class="mb-16">
-    <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-white/10 pb-4 mb-6">
-      <h3 class="font-mono text-[13px] font-bold text-accent tracking-[3px] uppercase mb-4 md:mb-0">PRE-ESTRENOS INTERACTIVOS</h3>
+    <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-white/10 pb-4 mb-6 gap-4">
+      <h3 class="font-mono text-[13px] font-bold text-accent tracking-[3px] uppercase mb-0">PRE-ESTRENOS INTERACTIVOS</h3>
       <div class="inline-flex items-center gap-3 bg-red-500/10 border border-red-500/30 px-4 py-2 rounded-lg">
          <div class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></div>
          <span class="font-mono text-[10px] text-red-400 font-bold tracking-widest uppercase">Quedan 15 días (Tiempo restante)</span>
@@ -885,7 +882,7 @@
     
     <div class="bg-gradient-to-r from-accent/10 to-transparent border border-accent/20 p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
       <div class="flex items-center gap-4 w-full md:w-auto">
-        <div class="w-16 h-16 bg-black/50 rounded-lg flex items-center justify-center border border-accent/40 shadow-inner">
+        <div class="w-16 h-16 bg-black/50 rounded-lg flex items-center justify-center border border-accent/40 shadow-inner shrink-0">
           <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
         </div>
         <div>
@@ -907,8 +904,8 @@
     
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
       
-      <!-- Left: Animated Flow (Más pequeño y bg negro) -->
-      <div class="lg:col-span-1 bg-black border border-white/5 rounded-xl p-3 relative overflow-hidden flex flex-col h-[400px] shadow-[inset_0_0_30px_rgba(0,0,0,0.8)]">
+      <!-- Left: Animated Flow -->
+      <div class="lg:col-span-1 bg-black border border-white/5 rounded-xl p-3 relative overflow-hidden flex flex-col h-[300px] md:h-[400px] shadow-[inset_0_0_30px_rgba(0,0,0,0.8)]">
         <div class="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-black to-transparent z-10"></div>
         <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent z-10"></div>
         
@@ -942,7 +939,7 @@
       <div class="lg:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-3">
         <!-- Bad Night Card (Highlighted) -->
         <div class="relative aspect-[2/3] rounded-xl overflow-hidden shadow-[0_0_15px_rgba(250,204,21,0.2)] border-2 border-accent/60 group">
-          <img src="badnight.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <img src="poster.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
           <div class="absolute top-2 right-2 bg-accent text-black font-mono text-[8px] font-bold px-1.5 py-0.5 rounded shadow">VERIFIED</div>
         </div>
         <!-- Project Placeholders -->
@@ -974,7 +971,7 @@
     <h3 class="font-mono text-[13px] font-bold text-accent mb-4 tracking-[3px] uppercase border-b border-white/10 pb-2">ESTRENOS — AUDIENCE SIGNAL LAYER</h3>
     
     <p class="text-[12px] text-blue-400/80 font-mono mb-4 uppercase tracking-wider flex items-center gap-2">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> 
+      <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> 
       Estrategia de Redes y Tracción de Comunidad Integradas en esta fase
     </p>
 
@@ -986,7 +983,7 @@
         
         <!-- Bad Night Card (Interactive Votable) -->
         <div class="relative group aspect-[2/3] rounded-xl overflow-hidden shadow-[0_0_15px_rgba(250,204,21,0.2)] border-2 border-accent/60 bg-carbon">
-          <img src="badnight.png" class="w-full h-full object-cover">
+          <img src="poster.png" class="w-full h-full object-cover">
           <div class="absolute top-2 right-2 bg-accent text-black font-mono text-[8px] font-bold px-1.5 py-0.5 rounded shadow z-10">OPEN</div>
           
           <!-- Hover Overlay Actions -->
@@ -1046,7 +1043,7 @@
       </div>
 
       <!-- Right: LIVE CHAT MODULE (Podcast Layer) -->
-      <div class="w-full lg:w-[360px] shrink-0 bg-carbon rounded-2xl border border-white/10 p-6 flex flex-col shadow-[0_0_30px_rgba(0,0,0,0.5)] h-[600px] relative overflow-hidden">
+      <div class="w-full lg:w-[360px] shrink-0 bg-carbon rounded-2xl border border-white/10 p-6 flex flex-col shadow-[0_0_30px_rgba(0,0,0,0.5)] h-[450px] md:h-[600px] relative overflow-hidden">
         
         <!-- Header -->
         <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10 relative z-10">
@@ -1127,7 +1124,7 @@
 </section>
 
 <!-- NEW NODO 9: WALL DE PROYECTOS EN EXPOSICIÓN -->
-<section class="max-w-6xl mx-auto px-6 py-20 relative fade-in" id="s9">
+<section class="max-w-6xl mx-auto px-6 py-16 md:py-20 relative fade-in" id="s9">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
   <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODO 09</div>
   <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gradient">WALL DE PROYECTOS EN EXPOSICIÓN</h2>
@@ -1168,7 +1165,7 @@
   <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
     <!-- Bad Night Card (Highlighted) -->
     <div class="relative aspect-[2/3] rounded-xl overflow-hidden shadow-[0_0_20px_rgba(250,204,21,0.3)] border-2 border-accent group z-10 scale-105">
-      <img src="badnight.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+      <img src="poster.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
       <div class="absolute top-2 right-2 bg-accent text-black font-mono text-[8px] font-bold px-1.5 py-0.5 rounded shadow">SELECTED</div>
     </div>
     <!-- Project Placeholders -->
@@ -1203,7 +1200,7 @@
 </section>
 
 <!-- NODO 10: VENTA (Antiguo Nodo 09) -->
-<section class="max-w-4xl mx-auto px-6 py-20 relative fade-in" id="s10">
+<section class="max-w-4xl mx-auto px-6 py-16 md:py-20 relative fade-in" id="s10">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
   <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODO 10</div>
   <h2 class="text-3xl md:text-4xl font-bold mb-2 text-gradient">Proceso de venta — Industry Negotiation Phase</h2>
@@ -1347,7 +1344,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entry.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+  }, { threshold: 0.05, rootMargin: "0px 0px -50px 0px" });
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
   const ipSection = document.getElementById('s1');
@@ -1401,7 +1398,7 @@ document.addEventListener('DOMContentLoaded', () => {
           filterObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.6 });
+    }, { threshold: 0.2 });
     filterObserver.observe(filterSection);
   }
 
