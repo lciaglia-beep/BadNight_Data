@@ -189,7 +189,7 @@
 <main class="pt-20">
   
 <!-- HERO SECTION -->
-<section id="hero" class="min-h-screen flex flex-col items-center justify-start px-4 pt-28 pb-16 relative overflow-hidden">
+<section id="hero" class="min-h-screen flex flex-col items-center justify-start px-4 pt-8 pb-16 relative overflow-hidden">
   <!-- Background Elements -->
   <div class="orb orb-gold w-[300px] h-[300px] md:w-[500px] md:h-[500px] top-[10%] left-1/2 -translate-x-1/2"></div>
   <div class="orb orb-red w-[200px] h-[200px] md:w-[300px] md:h-[300px] bottom-[20%] right-[5%]"></div>
@@ -426,7 +426,9 @@
   </p>
   
   <div class="w-full aspect-video rounded-xl border border-white/20 bg-black overflow-hidden relative mb-8 shadow-lg">
-    <video src="video1.mp4" class="w-full h-full object-contain opacity-90" autoplay muted loop playsinline></video>
+    <video class="w-full h-full object-contain opacity-90" autoplay muted loop playsinline preload="auto">
+      <source src="video1.mp4" type="video/mp4">
+    </video>
   </div>
   
   <div class="grid gap-2 mb-8">
@@ -477,7 +479,9 @@
   </p>
   
   <div class="w-full aspect-video rounded-xl border border-white/20 bg-black overflow-hidden relative mb-8 shadow-lg">
-    <video src="video2.mp4" class="w-full h-full object-contain opacity-90" autoplay muted loop playsinline></video>
+    <video class="w-full h-full object-contain opacity-90" autoplay muted loop playsinline preload="auto">
+      <source src="video2.mp4" type="video/mp4">
+    </video>
   </div>
   
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
