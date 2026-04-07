@@ -866,7 +866,7 @@
   </div>
 </section>
 
-<!-- NODO 8: MARKETPLACE COMPLETO -->
+<!-- NODE 8: MARKETPLACE COMPLETO -->
 <section class="max-w-6xl mx-auto px-6 py-16 md:py-20 relative fade-in" id="s8">
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
   <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODE 08</div>
@@ -915,7 +915,7 @@
     
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
       
-      <!-- Left: Animated Flow -->
+      <!-- Left: Animated Flow (Más pequeño y bg negro) -->
       <div class="lg:col-span-1 bg-black border border-white/5 rounded-xl p-3 relative overflow-hidden flex flex-col h-[300px] md:h-[400px] shadow-[inset_0_0_30px_rgba(0,0,0,0.8)]">
         <div class="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-black to-transparent z-10"></div>
         <div class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent z-10"></div>
@@ -1368,20 +1368,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const humanBtn = document.getElementById('ip-human-btn');
             const aiBtn = document.getElementById('ip-ai-btn');
             
-            bg.classList.remove('translate-x-full', 'opacity-50');
-            bg.classList.add('translate-x-0', 'opacity-100');
-            
-            humanBtn.classList.remove('text-white/40');
-            humanBtn.classList.add('text-accent');
-            
-            aiBtn.classList.remove('text-white/70');
-            aiBtn.classList.add('text-white/30', 'line-through');
-            
+            if (bg && humanBtn && aiBtn) {
+              bg.classList.remove('translate-x-full', 'opacity-50');
+              bg.classList.add('translate-x-0', 'opacity-100');
+              
+              humanBtn.classList.remove('text-white/40');
+              humanBtn.classList.add('text-accent');
+              
+              aiBtn.classList.remove('text-white/70');
+              aiBtn.classList.add('text-white/30', 'line-through');
+            }
           }, 300);
           ipObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.1 });
     ipObserver.observe(ipSection);
   }
 
@@ -1396,20 +1397,24 @@ document.addEventListener('DOMContentLoaded', () => {
               item.classList.remove('opacity-40', 'translate-x-[-20px]');
               item.classList.add('opacity-100', 'translate-x-0', 'border-accent/40');
               const status = item.querySelector('.filter-status');
-              status.innerHTML = `<svg class="w-4 h-4 text-green-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> <span class="text-green-500 font-bold">PASSED</span>`;
+              if(status) {
+                  status.innerHTML = `<svg class="w-4 h-4 text-green-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> <span class="text-green-500 font-bold">PASSED</span>`;
+              }
             }, index * 400);
           });
           
           const finalResult = entry.target.querySelector('.filter-final');
-          setTimeout(() => {
-            finalResult.classList.remove('opacity-0');
-            finalResult.classList.add('opacity-100');
-          }, items.length * 400 + 200);
+          if(finalResult) {
+              setTimeout(() => {
+                finalResult.classList.remove('opacity-0');
+                finalResult.classList.add('opacity-100');
+              }, items.length * 400 + 200);
+          }
 
           filterObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.1 });
     filterObserver.observe(filterSection);
   }
 
