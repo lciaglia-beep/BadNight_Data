@@ -13,9 +13,9 @@
     theme: {
       extend: {
         colors: {
-          bg: '#1c1c1e',
-          carbon: '#2c2c2e',
-          slate: '#2c2c2e',
+          bg: '#050505',     /* Fondo Negro Puro */
+          carbon: '#111113', /* Fondo Carbón */
+          slate: '#1a1a1e',  /* Fondo Pizarra */
           accent: {
             DEFAULT: '#FACC15',
             glow: 'rgba(250,204,21,0.4)',
@@ -71,20 +71,31 @@
     background-clip: text;
   }
   
+  /* Componente Principal Glass-Panel */
   .glass-panel {
-    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
     backdrop-filter: blur(30px) saturate(180%);
     -webkit-backdrop-filter: blur(30px) saturate(180%);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-top: 1px solid rgba(255,255,255,0.25);
-    border-left: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), inset 0 1px 2px rgba(255,255,255,0.1);
+    border-radius: 16px;
     transition: all 0.3s ease;
   }
   
   .glass-panel:hover {
-    border-color: theme('colors.accent.border');
-    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6), 0 0 20px theme('colors.accent.glow'), inset 0 1px 2px rgba(255,255,255,0.1);
+    border-color: rgba(250, 204, 21, 0.6);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(250, 204, 21, 0.4), inset 0 1px 2px rgba(255,255,255,0.1);
+    transform: translateY(-4px);
+  }
+
+  /* Tablas de Data Room (Regla Estricta) */
+  table th {
+    background-color: #111113;
+    position: sticky;
+    top: 0;
+    z-index: 10;
   }
 
   /* Orbs */
@@ -116,11 +127,11 @@
     transform: translateY(0);
   }
 
-  /* Scrollbar */
+  /* Custom Scrollbar (Regla Estricta) */
   ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: theme('colors.bg'); }
-  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
-  ::-webkit-scrollbar-thumb:hover { background: theme('colors.accent.border'); }
+  ::-webkit-scrollbar-track { background: #050505; }
+  ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #FACC15; }
 
   /* Horizontal Scroll Hide for Rail */
   .hide-scroll::-webkit-scrollbar { display: none; }
@@ -136,7 +147,7 @@
   
 </style>
 </head>
-<body class="antialiased bg-bg text-gray-100 overflow-x-hidden selection:bg-accent/30 selection:text-white relative">
+<body class="antialiased bg-bg text-[#F3F4F6] overflow-x-hidden selection:bg-accent/30 selection:text-white relative">
 
 <!-- HOME COVER: INITIAL SHOWCASE -->
 <section class="min-h-screen max-w-[90rem] mx-auto px-6 py-12 md:py-20 relative transition-opacity duration-1000 ease-in-out flex flex-col justify-center" id="intro-screen">
@@ -248,7 +259,7 @@
 <div id="platform-content" class="hidden opacity-0 transition-opacity duration-1000 ease-in-out">
 
   <header id="rail-header" class="fixed top-0 left-0 right-0 z-50 bg-bg/90 backdrop-blur-md border-b border-white/10 py-3 transition-shadow duration-300 shadow-sm flex items-center">
-    <div class="absolute top-1/2 -translate-y-1/2 left-4 md:left-8 font-mono text-[9px] font-bold tracking-[4px] text-accent/40 hidden sm:block bg-bg/90 px-2 z-10">QANTICA</div>
+    <div class="absolute top-1/2 -translate-y-1/2 left-4 md:left-8 font-mono text-[9px] font-bold tracking-[4px] text-accent/40 hidden sm:block bg-bg/90 px-2 py-1 z-20">QANTICA</div>
     
     <div class="relative w-full max-w-[90rem] mx-auto px-4 sm:px-16">
       <div class="absolute top-1/2 left-4 md:left-[120px] right-4 sm:right-16 h-px bg-accent/20 -translate-y-1/2 hidden md:block z-0">
@@ -398,8 +409,8 @@
         The script enters the QIP system, where the intellectual property is officially registered. In this initial phase, the human authorship affidavit is verified, certifying that the work was created by its authors without AI-generated content.
       </p>
 
-      <!-- Ultra-condensed Meta Data Box -->
-      <div class="bg-[#151515] border border-white/10 rounded-xl p-4 md:p-6 mb-10 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)]">
+      <!-- Glass Panel Meta Data Box -->
+      <div class="glass-panel p-4 md:p-6 mb-10">
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           <div class="flex flex-col border-l-2 border-accent/40 pl-3">
              <span class="text-[9px] text-gray-500 uppercase tracking-widest font-mono mb-1">Title</span>
@@ -437,10 +448,10 @@
         </div>
       </div>
 
-      <!-- NEW AI LEGAL SEAL (TINY & REFINED) -->
+      <!-- NEW AI LEGAL SEAL -->
       <div class="relative max-w-sm group perspective-1000 mb-8 mx-auto">
         <div class="absolute -inset-1 bg-gradient-to-r from-[#bf953f] via-[#fcf6ba] to-[#b38728] rounded-xl blur-md opacity-20 group-hover:opacity-40 transition duration-1000 animate-pulse"></div>
-        <div class="relative bg-gradient-to-b from-[#1c1c1e] to-[#0a0a0a] border border-[#bf953f]/40 rounded-xl p-4 md:p-5 flex flex-col items-center justify-center shadow-[inset_0_0_20px_rgba(191,149,63,0.1),0_10px_20px_rgba(0,0,0,0.6)] transform transition-transform duration-500 group-hover:scale-[1.02] overflow-hidden text-center">
+        <div class="relative glass-panel p-4 md:p-5 flex flex-col items-center justify-center shadow-[inset_0_0_20px_rgba(191,149,63,0.1),0_10px_20px_rgba(0,0,0,0.6)] transform transition-transform duration-500 overflow-hidden text-center hover:scale-[1.02] border-[#bf953f]/40">
           <div class="absolute top-0 left-[-100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-[-45deg] group-hover:left-[200%] transition-all duration-1000 ease-in-out pointer-events-none"></div>
 
           <!-- Tiny Central Icon -->
@@ -485,35 +496,32 @@
 
       <!-- Tab 0: Access Evaluation (CONDENSED) -->
       <div id="qip-content-0" class="qip-pane transition-all duration-500 opacity-100 translate-y-0 block">
-        <div class="font-mono text-[10px] tracking-[2px] text-gray-400 mb-6 font-bold">PHASE 0 — Access evaluation</div>
         <p class="text-[14px] md:text-[15px] text-gray-300 leading-relaxed font-light mb-8 opacity-90 max-w-4xl">
           Access to the QIP system requires an initial evaluation to determine whether the work demonstrates the minimum structural potential required to proceed.
         </p>
 
         <!-- Big PASSED block -->
-        <div class="flex flex-col items-center justify-center bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/30 rounded-2xl p-10 mb-8 shadow-[0_0_30px_rgba(34,197,94,0.15)] text-center max-w-2xl mx-auto">
+        <div class="flex flex-col items-center justify-center glass-panel p-10 mb-8 text-center max-w-2xl mx-auto border-green-500/30">
             <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4 border border-green-500/50 shadow-[0_0_20px_rgba(34,197,94,0.4)]">
                 <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
             </div>
             <h3 class="text-2xl font-bold text-white mb-2 tracking-wide">ALL FILTERS PASSED</h3>
             <p class="text-green-400/80 font-mono text-[11px] uppercase tracking-widest">Structural Minimum Validated</p>
         </div>
-        
       </div>
 
       <!-- Tab 1: Structural Diagnosis -->
       <div id="qip-content-1" class="qip-pane transition-all duration-500 opacity-0 translate-y-4 hidden">
-        <div class="font-mono text-[10px] tracking-[2px] text-gray-400 mb-6 font-bold">PHASE 1 — Script structural diagnosis</div>
         <p class="text-[14px] md:text-[15px] text-gray-300 leading-relaxed font-light mb-8 opacity-90 max-w-4xl">
           QIP performs a comprehensive analysis of the script. During this phase, the authors answer the narrative context and character building questionnaire, allowing for an accurate evaluation of the intellectual property's potential.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-3xl">
-          <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-4 rounded-lg bg-gradient-to-br from-white/5 to-transparent border border-white/10 border-l-2 border-l-accent/40">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 glass-panel p-4 border-l-2 border-l-accent/40">
             <span class="font-mono text-[10px] font-bold text-gray-400 uppercase tracking-wide w-32">Initial IPM</span>
             <span class="text-sm font-semibold text-red-400">77 improvement points</span>
           </div>
-          <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-4 rounded-lg bg-gradient-to-br from-white/5 to-transparent border border-white/10 border-l-2 border-l-accent/40">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 glass-panel p-4 border-l-2 border-l-accent/40">
             <span class="font-mono text-[10px] font-bold text-gray-400 uppercase tracking-wide w-32">Distribution</span>
             <span class="text-sm text-gray-100">8 critical / 44 warnings / 25 minor</span>
           </div>
@@ -529,18 +537,17 @@
 
       <!-- Tab 2: Method Activation -->
       <div id="qip-content-2" class="qip-pane transition-all duration-500 opacity-0 translate-y-4 hidden">
-        <div class="font-mono text-[10px] tracking-[2px] text-gray-400 mb-6 font-bold">PHASE 1 — QIP Phase 1 (Iteration)</div>
         <p class="text-[14px] md:text-[15px] text-gray-300 leading-relaxed font-light mb-6 opacity-90 max-w-4xl">
           At this stage, the QIP Method of creative transformation is activated. QIP Phase 1 operates through a Socratic model of structured questions that allows creators to deepen narrative coherence, strengthen dramatic architecture, and optimize the IP's transmedia potential. The system guides the author to reveal the maximum expression of their original vision. This process takes place through 7 documented iterations.
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 max-w-4xl">
-          <div class="p-6 rounded-xl relative overflow-hidden bg-gradient-to-br from-red-500/10 to-transparent border border-red-500/30 shadow-md">
+          <div class="glass-panel p-6 border-red-500/30">
             <div class="font-mono text-[9px] font-bold tracking-[4px] mb-3 text-red-400">BEFORE</div>
             <div class="text-3xl font-bold mb-2 text-red-400">IPM 77</div>
             <div class="text-xs text-gray-300 leading-relaxed font-light">Rating 2/5<br>Reactive protagonist<br>Irregular second act</div>
           </div>
-          <div class="p-6 rounded-xl relative overflow-hidden bg-gradient-to-br from-accent/20 to-transparent border border-accent/40 shadow-md">
+          <div class="glass-panel p-6 border-accent/40">
             <div class="font-mono text-[9px] font-bold tracking-[4px] mb-3 text-accent">AFTER</div>
             <div class="text-3xl font-bold mb-2 text-accent">IPM 19</div>
             <div class="text-xs text-gray-200 leading-relaxed font-light">75% reduction · SEP 84/100<br>7 versions (V3→V6.0)</div>
@@ -560,7 +567,7 @@
       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient">Satellite activation — Early talent ecosystem</h2>
       
       <!-- Condensed Satellite Profile -->
-      <div class="bg-gradient-to-r from-white/5 to-transparent border border-white/10 p-5 md:p-6 rounded-xl mb-10 shadow-inner max-w-4xl">
+      <div class="glass-panel p-5 md:p-6 mb-10 max-w-4xl">
          <h4 class="font-mono text-[12px] text-accent font-bold tracking-widest mb-3 uppercase">Satellite Profile</h4>
          <p class="text-[13px] md:text-[14px] text-gray-300 font-light leading-relaxed">
            Satellites are creators who orbit the project’s main author, joining the platform at different stages of development. They complete a verified registration process that allows for proper evaluation, and active membership is required to participate in the project’s collaboration ecosystem. This network may also include actors and recognized professionals from the audiovisual industry, whose visible support strengthens the project’s credibility, visibility, and commercial positioning.
@@ -569,23 +576,23 @@
       
       <!-- Videos Only -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 max-w-6xl mx-auto">
-        <div class="relative w-full h-64 rounded-2xl overflow-hidden border border-white/10 opacity-80 shadow-md bg-black">
-          <video src="jaime.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline webkit-playsinline preload="auto"></video>
+        <div class="relative w-full h-64 rounded-2xl overflow-hidden glass-panel p-0 opacity-80">
+          <video src="jaime.mp4" class="w-full h-full object-cover rounded-2xl" autoplay muted loop playsinline webkit-playsinline preload="auto"></video>
         </div>
-        <div class="relative w-full h-64 rounded-2xl overflow-hidden border border-white/10 opacity-80 shadow-md bg-black">
-          <video src="xina.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline webkit-playsinline preload="auto"></video>
+        <div class="relative w-full h-64 rounded-2xl overflow-hidden glass-panel p-0 opacity-80">
+          <video src="xina.mp4" class="w-full h-full object-cover rounded-2xl" autoplay muted loop playsinline webkit-playsinline preload="auto"></video>
         </div>
-        <div class="relative w-full h-64 rounded-2xl overflow-hidden border border-white/10 opacity-80 shadow-md bg-black">
-          <video src="china.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline webkit-playsinline preload="auto"></video>
+        <div class="relative w-full h-64 rounded-2xl overflow-hidden glass-panel p-0 opacity-80">
+          <video src="china.mp4" class="w-full h-full object-cover rounded-2xl" autoplay muted loop playsinline webkit-playsinline preload="auto"></video>
         </div>
-        <div class="relative w-full h-64 rounded-2xl overflow-hidden border border-white/10 opacity-80 shadow-md bg-black">
-          <video src="daniela.mp4" class="w-full h-full object-cover" autoplay muted loop playsinline webkit-playsinline preload="auto"></video>
+        <div class="relative w-full h-64 rounded-2xl overflow-hidden glass-panel p-0 opacity-80">
+          <video src="daniela.mp4" class="w-full h-full object-cover rounded-2xl" autoplay muted loop playsinline webkit-playsinline preload="auto"></video>
         </div>
       </div>
       
     </section>
 
-    <!-- NODE 06: QSS (NUEVA ESTRUCTURA EN 3 NIVELES REDISEÑADA) -->
+    <!-- NODE 06: QSS -->
     <section class="max-w-6xl mx-auto px-6 py-12 md:py-16 relative fade-in" id="s6">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
       <div class="font-mono text-[11px] font-bold tracking-[5px] text-accent/60 mb-2">NODE 06</div>
@@ -598,8 +605,8 @@
       <div class="max-w-5xl mx-auto">
         
         <!-- QSS NIVEL 1 (Dorado/Accent) -->
-        <details class="qss-level group relative rounded-2xl overflow-hidden bg-black/60 border border-accent/30 hover:border-accent shadow-[0_0_20px_rgba(0,0,0,0.6)] hover:shadow-[0_0_30px_rgba(250,204,21,0.15)] transition-all duration-500 mb-8 cursor-pointer" open>
-          <summary class="p-6 md:p-8 flex items-center justify-between relative bg-gradient-to-r from-[#1c1c1e] via-[#1c1c1e] to-accent/10 hover:to-accent/20 transition-all z-10 outline-none">
+        <details class="qss-level glass-panel group relative overflow-hidden mb-8 cursor-pointer border-accent/30" open>
+          <summary class="p-6 md:p-8 flex items-center justify-between relative bg-gradient-to-r from-transparent to-accent/10 hover:to-accent/20 transition-all z-10 outline-none">
             <!-- Capa decorativa en hover -->
             <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             
@@ -620,7 +627,7 @@
           </summary>
           
           <!-- Contenido Expandible Nivel 1 -->
-          <div class="p-6 md:p-8 border-t border-white/10 bg-[#151515] cursor-default relative z-0" onclick="event.stopPropagation()">
+          <div class="p-6 md:p-8 border-t border-white/10 bg-[#050505]/50 cursor-default relative z-0" onclick="event.stopPropagation()">
             
             <!-- SECCIÓN 1: PITCH DECK & BUDGET -->
             <div class="mb-12">
@@ -652,36 +659,36 @@
                 Each screenplay listed on Qantica’s marketplace includes an interactive experience designed to convey the atmosphere of the IP. The GDD analysis identifies a representative scene, extracts its dialogue from the original screenplay, and renders both as an immersive preview. Buyers don’t read a synopsis. They feel it.
               </p>
               
-              <div class="bg-white/5 border border-white/10 rounded-xl p-5 mb-8 border-l-2 border-l-accent/50">
+              <div class="glass-panel border-l-2 border-l-accent/50 p-5 mb-8">
                 <h4 class="font-mono text-[10px] font-bold text-accent mb-2 tracking-[2px] uppercase">RESULT</h4>
                 <p class="text-[13px] text-gray-300 font-light leading-relaxed">
                   Certified 9-block GDD: genre classification, Core Loop, spatial topology, entity profile, design flags, production metrics, and narrative fields. Sealed on the blockchain alongside the cinematic analysis BC4.
                 </p>
               </div>
 
-              <!-- 5 METRICS CARDS (SMALLER) -->
+              <!-- 5 METRICS CARDS -->
               <div class="grid grid-cols-2 md:grid-cols-6 gap-2 mb-10">
-                <div class="col-span-1 md:col-span-2 bg-gradient-to-br from-black to-carbon border border-white/10 p-3 rounded-xl shadow-inner flex flex-col justify-center items-center text-center group/card hover:border-accent/40 transition-colors">
+                <div class="col-span-1 md:col-span-2 glass-panel p-3 shadow-inner flex flex-col justify-center items-center text-center group/card hover:border-accent/40 transition-colors">
                   <span class="font-mono text-[8px] text-gray-500 uppercase tracking-widest mb-1">GAME TIER</span>
                   <span class="text-lg font-bold text-white mb-0.5 group-hover/card:text-accent transition-colors">T2</span>
                   <span class="text-[9px] text-gray-400 font-light">Narrative / Advergame</span>
                 </div>
-                <div class="col-span-1 md:col-span-2 bg-gradient-to-br from-black to-carbon border border-white/10 p-3 rounded-xl shadow-inner flex flex-col justify-center items-center text-center group/card hover:border-accent/40 transition-colors">
+                <div class="col-span-1 md:col-span-2 glass-panel p-3 shadow-inner flex flex-col justify-center items-center text-center group/card hover:border-accent/40 transition-colors">
                   <span class="font-mono text-[8px] text-gray-500 uppercase tracking-widest mb-1">CORE LOOP</span>
                   <span class="text-lg font-bold text-white mb-0.5 group-hover/card:text-accent transition-colors">NARRATIVE</span>
                   <span class="text-[9px] text-gray-400 font-light">Social decision drama</span>
                 </div>
-                <div class="col-span-2 md:col-span-2 bg-gradient-to-br from-black to-carbon border border-white/10 p-3 rounded-xl shadow-inner flex flex-col justify-center items-center text-center group/card hover:border-accent/40 transition-colors">
+                <div class="col-span-2 md:col-span-2 glass-panel p-3 shadow-inner flex flex-col justify-center items-center text-center group/card hover:border-accent/40 transition-colors">
                   <span class="font-mono text-[8px] text-gray-500 uppercase tracking-widest mb-1">BUDGET TIER</span>
                   <span class="text-lg font-bold text-white mb-0.5 group-hover/card:text-accent transition-colors">AA</span>
                   <span class="text-[9px] text-gray-400 font-light">Mid-scope · PC / Mobile</span>
                 </div>
-                <div class="col-span-2 md:col-span-3 bg-gradient-to-br from-black to-carbon border border-white/10 p-3 rounded-xl shadow-inner flex flex-col justify-center items-center text-center group/card hover:border-accent/40 transition-colors">
+                <div class="col-span-2 md:col-span-3 glass-panel p-3 shadow-inner flex flex-col justify-center items-center text-center group/card hover:border-accent/40 transition-colors">
                   <span class="font-mono text-[8px] text-gray-500 uppercase tracking-widest mb-1">MECHANICAL RICHNESS</span>
                   <span class="text-lg font-bold text-white mb-0.5 group-hover/card:text-accent transition-colors">0.807</span>
                   <span class="text-[9px] text-gray-400 font-light">9 out of 10 active action types</span>
                 </div>
-                <div class="col-span-2 md:col-span-3 bg-gradient-to-br from-black to-carbon border border-white/10 p-3 rounded-xl shadow-inner flex flex-col justify-center items-center text-center group/card hover:border-accent/40 transition-colors">
+                <div class="col-span-2 md:col-span-3 glass-panel p-3 shadow-inner flex flex-col justify-center items-center text-center group/card hover:border-accent/40 transition-colors">
                   <span class="font-mono text-[8px] text-gray-500 uppercase tracking-widest mb-1">CHARACTER NETWORK</span>
                   <span class="text-lg font-bold text-white mb-0.5 group-hover/card:text-accent transition-colors">0.667</span>
                   <span class="text-[9px] text-gray-400 font-light">High interconnection · 9 named characters</span>
@@ -705,7 +712,7 @@
               </div>
 
               <!-- BENEFIT SECTION -->
-              <div class="p-6 border border-accent/30 bg-gradient-to-br from-accent/10 to-transparent rounded-xl shadow-[0_0_20px_rgba(250,204,21,0.1)]">
+              <div class="glass-panel border-accent/30 p-6">
                  <h4 class="font-mono text-[11px] font-bold text-accent mb-4 tracking-[2px] uppercase">BENEFIT</h4>
                  <ul class="space-y-4">
                    <li class="flex items-start gap-3">
@@ -733,14 +740,14 @@
                 A conceptual audiovisual teaser is developed to convey the author’s original tone, atmosphere, and emotional intent. This teaser provides an early understanding of the narrative universe, facilitating creative alignment prior to development.
               </p>
               <div class="grid grid-cols-2 md:grid-cols-4 gap-3 relative z-10 w-full">
-                <div class="aspect-video bg-black border border-white/20 rounded-lg overflow-hidden shadow-md"><video src="bad1.mp4" class="w-full h-full object-cover opacity-90" muted loop autoplay playsinline webkit-playsinline preload="auto"></video></div>
-                <div class="aspect-video bg-black border border-white/20 rounded-lg overflow-hidden shadow-md"><video src="bad2.mp4" class="w-full h-full object-cover opacity-90" muted loop autoplay playsinline webkit-playsinline preload="auto"></video></div>
-                <div class="aspect-video bg-black border border-white/20 rounded-lg overflow-hidden shadow-md"><video src="bad3.mp4" class="w-full h-full object-cover opacity-90" muted loop autoplay playsinline webkit-playsinline preload="auto"></video></div>
-                <div class="aspect-video bg-black border border-white/20 rounded-lg overflow-hidden shadow-md"><video src="bad4.mp4" class="w-full h-full object-cover opacity-90" muted loop autoplay playsinline webkit-playsinline preload="auto"></video></div>
-                <div class="aspect-video bg-black border border-white/20 rounded-lg overflow-hidden shadow-md"><img src="bad1.png" class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"></div>
-                <div class="aspect-video bg-black border border-white/20 rounded-lg overflow-hidden shadow-md"><img src="bad2.png" class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"></div>
-                <div class="aspect-video bg-black border border-white/20 rounded-lg overflow-hidden shadow-md"><img src="bad3.png" class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"></div>
-                <div class="aspect-video bg-black border border-white/20 rounded-lg overflow-hidden shadow-md"><img src="bad4.png" class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"></div>
+                <div class="aspect-video bg-carbon border border-white/20 rounded-lg overflow-hidden shadow-md"><video src="bad1.mp4" class="w-full h-full object-cover opacity-90" muted loop autoplay playsinline webkit-playsinline preload="auto"></video></div>
+                <div class="aspect-video bg-carbon border border-white/20 rounded-lg overflow-hidden shadow-md"><video src="bad2.mp4" class="w-full h-full object-cover opacity-90" muted loop autoplay playsinline webkit-playsinline preload="auto"></video></div>
+                <div class="aspect-video bg-carbon border border-white/20 rounded-lg overflow-hidden shadow-md"><video src="bad3.mp4" class="w-full h-full object-cover opacity-90" muted loop autoplay playsinline webkit-playsinline preload="auto"></video></div>
+                <div class="aspect-video bg-carbon border border-white/20 rounded-lg overflow-hidden shadow-md"><video src="bad4.mp4" class="w-full h-full object-cover opacity-90" muted loop autoplay playsinline webkit-playsinline preload="auto"></video></div>
+                <div class="aspect-video bg-carbon border border-white/20 rounded-lg overflow-hidden shadow-md"><img src="bad1.png" class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"></div>
+                <div class="aspect-video bg-carbon border border-white/20 rounded-lg overflow-hidden shadow-md"><img src="bad2.png" class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"></div>
+                <div class="aspect-video bg-carbon border border-white/20 rounded-lg overflow-hidden shadow-md"><img src="bad3.png" class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"></div>
+                <div class="aspect-video bg-carbon border border-white/20 rounded-lg overflow-hidden shadow-md"><img src="bad4.png" class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-700"></div>
               </div>
             </div>
 
@@ -749,7 +756,7 @@
               <div class="border-b border-white/10 pb-2 mb-6">
                  <h4 class="font-mono text-[14px] font-bold text-accent tracking-[3px] uppercase">4. TRANSMEDIA: MUSIC & MERCH</h4>
               </div>
-              <div class="bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/30 rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md relative z-30 mb-8">
+              <div class="glass-panel p-6 md:p-8 border-green-500/30 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md relative z-30 mb-8">
                 <div class="w-full">
                   <h3 class="font-mono text-[13px] font-bold text-green-400 mb-3 tracking-[2px] uppercase">Original Soundtrack</h3>
                   <p class="text-[14px] text-gray-300 leading-relaxed font-light mb-4">Music is activated as a strategic component, similar to the gaming layer, adding commercial value to the project and enabling it to scale. It also supports the development of an original soundtrack with a renowned artist, strengthening the project’s commercial viability.</p>
@@ -761,10 +768,10 @@
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.24 1.02zm1.44-3.3c-.301.42-.84.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.02.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.36.181.54.78.24 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.6.18-1.2.72-1.38 4.26-1.26 11.28-1.02 15.721 1.62.539.3.719 1.02.419 1.56-.239.54-.959.72-1.56.3z"/></svg>
                     Listen to Xina Mora on Spotify
                   </a>
-                  <!-- Spotify Player animado en Hover -->
+                  <!-- Spotify Player animado en Hover del boton -->
                   <div class="absolute bottom-full right-0 md:left-1/2 md:-translate-x-1/2 mb-4 opacity-0 invisible group-hover/spotify:opacity-100 group-hover/spotify:visible z-50 transition-all duration-300 w-[300px] max-w-[85vw] shadow-2xl translate-y-2 group-hover/spotify:translate-y-0">
                     <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/4dRPdWRUFyJp0yhjGBLClx?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                    <div class="absolute -bottom-2 right-12 md:left-1/2 md:-translate-x-1/2 border-4 border-transparent border-t-[#282828]"></div>
+                    <div class="absolute -bottom-2 right-12 md:left-1/2 md:-translate-x-1/2 border-4 border-transparent border-t-[var(--carbon)]"></div>
                   </div>
                 </div>
               </div>
@@ -784,8 +791,8 @@
         </details>
 
         <!-- QSS NIVEL 2 (Azul) -->
-        <details class="qss-level group relative rounded-2xl overflow-hidden bg-black/60 border border-blue-500/30 hover:border-blue-400 shadow-[0_0_20px_rgba(0,0,0,0.6)] hover:shadow-[0_0_30px_rgba(59,130,246,0.15)] transition-all duration-500 mb-8 cursor-pointer">
-          <summary class="p-6 md:p-8 flex items-center justify-between relative bg-gradient-to-r from-[#1c1c1e] via-[#1c1c1e] to-blue-500/10 hover:to-blue-500/20 transition-all z-10 outline-none">
+        <details class="qss-level glass-panel group relative overflow-hidden mb-8 cursor-pointer border-blue-500/30 hover:border-blue-400">
+          <summary class="p-6 md:p-8 flex items-center justify-between relative bg-gradient-to-r from-transparent to-blue-500/10 hover:to-blue-500/20 transition-all z-10 outline-none">
             <!-- Capa decorativa en hover -->
             <div class="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             
@@ -805,14 +812,14 @@
             </div>
           </summary>
           
-          <div class="p-6 md:p-8 border-t border-white/10 bg-[#151515] cursor-default relative z-0" onclick="event.stopPropagation()">
+          <div class="p-6 md:p-8 border-t border-white/10 bg-[#050505]/50 cursor-default relative z-0" onclick="event.stopPropagation()">
             
             <!-- SECCIÓN 1: LAUNCH DEPARTMENT -->
             <div class="mb-8">
               <div class="border-b border-white/10 pb-2 mb-6">
                  <h4 class="font-mono text-[14px] font-bold text-blue-400 tracking-[3px] uppercase">1. LAUNCH DEPARTMENT</h4>
               </div>
-              <div class="bg-gradient-to-br from-blue-500/10 to-transparent border border-blue-500/30 p-6 md:p-8 rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.1)] relative overflow-hidden">
+              <div class="glass-panel p-6 md:p-8 border-blue-500/30 relative overflow-hidden">
                  <h4 class="font-mono text-[11px] font-bold text-blue-300 mb-2 tracking-[2px] uppercase">How we create the Strategy Structure</h4>
                  <p class="text-sm text-gray-300 font-light leading-relaxed mb-4">
                    The Launch Department is focused on developing marketing and communication strategies for IPs born within Qantica, from launch through distribution. This goes beyond promotion, aiming to build a narrative and cultural presence around each project.
@@ -825,7 +832,7 @@
 
             <!-- SECCIÓN 2: COMMUNITY & HUMAN TALENT -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div class="bg-gradient-to-br from-blue-500/5 to-transparent border border-blue-500/20 p-6 md:p-8 rounded-xl shadow-inner col-span-1 md:col-span-2 relative overflow-hidden">
+              <div class="glass-panel p-6 md:p-8 border-blue-500/20 col-span-1 md:col-span-2 relative overflow-hidden">
                  <div class="absolute bottom-0 right-4 w-32 h-32 pointer-events-none overflow-hidden z-0">
                     <div class="absolute bottom-[-20px] right-4 text-red-500 animate-bubble text-xl drop-shadow">❤️</div>
                     <div class="absolute bottom-[-20px] right-10 text-blue-400 animate-bubble text-lg drop-shadow" style="animation-delay: 1.5s; animation-duration: 4s;">💬</div>
@@ -851,18 +858,15 @@
                  </div>
 
                  <p class="text-sm text-gray-300 font-light leading-relaxed mb-4 relative z-10">
-                   Qantica proposes an organic connection strategy where creators and cast actively merge their own platforms and presence with the life of the project, opening it up from the inside.
+                   Qantica proposes a genuine connection campaign in which creators and cast open their social networks to connect directly with the project. Through Instagram Live streams hosted on @badnight_themovie, the creative process and the people behind it are made visible.
                  </p>
                  <p class="text-sm text-gray-300 font-light leading-relaxed border-l-2 border-blue-500/40 pl-4 py-1 italic relative z-10">
-                   This extends beyond digital moments into real-world actions: Instagram Lives, audience interactions, and carefully designed guerrilla marketing interventions that spark curiosity and invite discovery.
-                 </p>
-                 <p class="text-sm text-gray-300 font-light leading-relaxed mt-4 relative z-10">
-                   The aim is to create a sense of presence before release, making audiences feel that Bad Night already exists within their cultural landscape. Rather than focusing on passive follower growth, the emphasis is on the magnetism of real talent and lived experience. The goal is to build an engaged, authentic community that feels connected to the project long before its premiere.
+                   We do not emphasize the passive accumulation of followers, but rather the magnetism of real talent. The goal is to build an authentic community and share the soul of the project from within.
                  </p>
               </div>
 
               <!-- Bloque IMDb y Segmentación -->
-              <div class="bg-gradient-to-br from-blue-500/5 to-transparent border border-white/10 p-6 rounded-xl shadow-inner hover:border-blue-400/50 transition-colors flex flex-col justify-center">
+              <div class="glass-panel p-6 flex flex-col justify-center border-white/10 hover:border-blue-400/50">
                  <h4 class="font-mono text-[11px] font-bold text-gray-400 mb-3 tracking-[2px] uppercase">Segmentation</h4>
                  <ul class="text-[13px] text-gray-300 font-light space-y-2 mb-6">
                     <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span> Target Audience (+18)</li>
@@ -877,8 +881,8 @@
         </details>
 
         <!-- QSS NIVEL 3 (Púrpura) -->
-        <details class="qss-level group relative rounded-2xl overflow-hidden bg-black/60 border border-purple-500/30 hover:border-purple-400 shadow-[0_0_20px_rgba(0,0,0,0.6)] hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] transition-all duration-500 mb-8 cursor-pointer">
-          <summary class="p-6 md:p-8 flex items-center justify-between relative bg-gradient-to-r from-[#1c1c1e] via-[#1c1c1e] to-purple-500/10 hover:to-purple-500/20 transition-all z-10 outline-none">
+        <details class="qss-level glass-panel group relative overflow-hidden mb-8 cursor-pointer border-purple-500/30 hover:border-purple-400">
+          <summary class="p-6 md:p-8 flex items-center justify-between relative bg-gradient-to-r from-transparent to-purple-500/10 hover:to-purple-500/20 transition-all z-10 outline-none">
             <!-- Capa decorativa en hover -->
             <div class="absolute inset-0 bg-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             
@@ -898,9 +902,9 @@
             </div>
           </summary>
           
-          <div class="p-6 md:p-8 border-t border-white/10 bg-[#151515] cursor-default relative z-0" onclick="event.stopPropagation()">
+          <div class="p-6 md:p-8 border-t border-white/10 bg-[#050505]/50 cursor-default relative z-0" onclick="event.stopPropagation()">
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-0 relative bg-black/60 border border-white/10 rounded-2xl p-8 overflow-hidden shadow-inner">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-0 relative glass-panel p-8 overflow-hidden">
                <!-- connecting line animation -->
                <div class="absolute top-1/2 left-[15%] w-[70%] h-[2px] bg-gradient-to-r from-purple-500/20 via-purple-500/80 to-purple-500/20 -translate-y-1/2 hidden md:block z-0">
                    <div class="absolute top-0 left-0 h-full w-1/3 bg-white/50 animate-[marquee-x_2s_linear_infinite] shadow-[0_0_15px_#fff]"></div>
@@ -917,7 +921,7 @@
 
                <!-- Node 2 (MARKETPLACE GATEWAY) -->
                <div class="relative z-10 flex flex-col items-center text-center p-4 mt-8 md:mt-0">
-                   <div class="w-16 h-16 rounded-xl bg-black border border-purple-500/40 flex items-center justify-center mb-4 rotate-45 hover:rotate-0 transition-transform duration-500 shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+                   <div class="w-16 h-16 rounded-xl bg-carbon border border-purple-500/40 flex items-center justify-center mb-4 rotate-45 hover:rotate-0 transition-transform duration-500 shadow-[0_0_20px_rgba(168,85,247,0.2)]">
                         <div class="-rotate-45 hover:rotate-0 transition-transform duration-500">
                             <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                         </div>
@@ -973,9 +977,9 @@
         
         <p class="text-[14px] text-gray-300 leading-relaxed font-light mb-6 text-left">Before entering the industrial sale phase, Bad Night presents an early interactive experience derived directly from the QIP analysis.</p>
         
-        <div class="bg-gradient-to-r from-accent/10 to-transparent border border-accent/20 p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg max-w-5xl">
+        <div class="glass-panel p-6 flex flex-col md:flex-row items-center justify-between gap-6 max-w-5xl">
           <div class="flex items-center gap-4 w-full md:w-auto justify-start">
-            <div class="w-16 h-16 bg-black/50 rounded-lg flex items-center justify-center border border-accent/40 shadow-inner shrink-0">
+            <div class="w-16 h-16 bg-carbon rounded-lg flex items-center justify-center border border-accent/40 shadow-inner shrink-0">
               <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </div>
             <div class="text-left">
@@ -1030,107 +1034,26 @@
               </div>
             </div>
             
-            <!-- Placeholders (hasta el 15) expandido en HTML para evitar bloqueos de JS -->
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project4.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 04</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project5.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 05</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project6.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 06</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project7.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 07</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project8.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 08</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project9.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 09</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project10.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 10</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project11.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 11</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project12.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 12</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project13.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 13</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project14.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 14</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
-            <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
-              <img src="project15.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\'>PRJ 15</div>'">
-              <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
-                <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
-                <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
-                <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
-              </div>
-            </div>
+            <!-- Placeholders (hasta el 15) -->
+            <script>
+               for(let i=4; i<=15; i++) {
+                  document.write(`
+                  <div class="relative group aspect-[2/3] rounded-xl overflow-hidden border border-white/10 opacity-70 bg-carbon mt-4 md:mt-0">
+                    <img src="project${i}.png" class="w-full h-full object-cover" onerror="this.outerHTML='<div class=\\'w-full h-full flex items-center justify-center font-mono text-[10px] text-white/30\\'>PRJ 0${i}</div>'">
+                    <div class="absolute inset-0 bg-black/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-3 backdrop-blur-sm px-4">
+                      <button onclick="handleInteraction(this, 'VOTED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">VOTE</button>
+                      <button onclick="handleInteraction(this, 'LIKED')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">LIKE</button>
+                      <button onclick="handleInteraction(this, 'FOLLOWING')" class="w-full py-2 border border-white/20 bg-white/5 hover:border-accent hover:text-accent font-mono text-[9px] rounded text-white transition-all">FOLLOW PROJECT</button>
+                    </div>
+                  </div>
+                  `);
+               }
+            </script>
+
           </div>
 
           <!-- Right: LIVE CHAT MODULE (Podcast Layer) -->
-          <div class="w-full lg:w-[320px] shrink-0 bg-carbon rounded-2xl border border-white/10 p-6 flex flex-col shadow-[0_0_30px_rgba(0,0,0,0.5)] h-[450px] md:h-[600px] relative overflow-hidden mx-auto lg:mx-0">
+          <div class="w-full lg:w-[320px] shrink-0 glass-panel p-6 flex flex-col h-[450px] md:h-[600px] relative overflow-hidden mx-auto lg:mx-0">
             
             <!-- Header -->
             <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/10 relative z-10">
@@ -1148,7 +1071,7 @@
             <!-- Audio Waves / Conversations simulation -->
             <div class="flex-1 flex flex-col gap-4 relative z-10 overflow-hidden">
                <!-- User 1 -->
-               <div class="bg-black/60 p-4 rounded-lg border border-accent/20 flex items-start gap-3 shadow-inner">
+               <div class="glass-panel p-4 flex items-start gap-3 shadow-inner">
                   <div class="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shrink-0 border border-accent/30"><span class="text-[12px] font-bold text-accent">W1</span></div>
                   <div class="flex-1">
                      <div class="flex justify-between items-center mb-2"><span class="text-[11px] font-bold text-gray-200">Writer_Alex</span><span class="text-[9px] text-gray-500">LIVE</span></div>
@@ -1192,6 +1115,13 @@
                <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#2c2c2e] to-transparent pointer-events-none"></div>
             </div>
             
+            <div class="mt-4 text-center pt-5 border-t border-white/10 relative z-10">
+               <span class="font-mono text-[10px] text-accent tracking-[3px] uppercase animate-pulse">Writers Podcast Layer Active</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- FINAL STEP: Countdown Banner -->
       <div class="mt-16 w-full flex justify-center">
         <div class="inline-flex items-center justify-center gap-3 py-4 px-8 rounded-xl border border-red-500/40 bg-red-500/10 font-mono text-[13px] md:text-[15px] font-bold text-red-400 tracking-widest shadow-[0_0_30px_rgba(239,68,68,0.2)]">
@@ -1214,15 +1144,15 @@
       </p>
       
       <div class="grid gap-2 mb-12">
-        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-3 rounded-lg bg-gradient-to-br from-white/10 to-transparent border border-white/10 border-l-2 border-l-accent/40 hover:border-l-accent transition-colors">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 glass-panel p-3 border-l-2 border-l-accent/40">
           <span class="font-mono text-[10px] font-bold text-gray-400 uppercase tracking-wide sm:w-48">Status</span>
           <span class="text-sm font-semibold text-accent animate-pulse">IN SALE PROCESS</span>
         </div>
-        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-3 rounded-lg bg-gradient-to-br from-white/10 to-transparent border border-white/10 border-l-2 border-l-accent/40 hover:border-l-accent transition-colors">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 glass-panel p-3 border-l-2 border-l-accent/40">
           <span class="font-mono text-[10px] font-bold text-gray-400 uppercase tracking-wide sm:w-48">Global Reach</span>
           <span class="text-sm text-gray-200">Negotiation in 3 continents. Expansion enabled: film + gaming</span>
         </div>
-        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-3 rounded-lg bg-gradient-to-br from-white/10 to-transparent border border-white/10 border-l-2 border-l-accent/40 hover:border-l-accent transition-colors">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 glass-panel p-3 border-l-2 border-l-accent/40">
           <span class="font-mono text-[10px] font-bold text-gray-400 uppercase tracking-wide sm:w-48">Pipeline</span>
           <span class="text-sm text-gray-200">10 steps successfully completed</span>
         </div>
@@ -1237,7 +1167,7 @@
         <img src="netflix_logo.png" alt="Netflix" class="h-8 md:h-10 object-contain" onerror="this.outerHTML='<span class=\'font-sans text-3xl font-bold tracking-widest text-red-600\'>NETFLIX</span>'">
       </div>
       
-      <div class="mt-8 p-5 border-l-2 border-accent/50 bg-gradient-to-br from-accent/10 to-transparent rounded-r-xl">
+      <div class="glass-panel p-5 border-l-2 border-accent/50">
         <p class="text-sm text-gray-300 leading-relaxed italic font-light opacity-90">
           A script that entered the QIP system with 77 improvement points and an initial rating of 2/5 is now in the sales process across three continents, generating two independent commercial assets from a single IP.<br><br>
           The entire process is certified on the blockchain, while all creative decisions remain in the author’s hands.
